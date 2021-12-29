@@ -1,0 +1,29 @@
+{
+  "name": "mainstation",
+  "version": "1.0.0",
+  "description": "DCCH64 MainStation is a Raspberry Pi based model railroad DCC controller.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCCH64/MainStation.git"
+  },
+  "keywords": [
+    "dcc",
+    "DCCH64",
+    "rpi",
+    "c++",
+    "interactive"
+  ],
+  "author": "Erik D. (erikd256)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/DCCH64/MainStation/issues"
+  },
+  "homepage": "https://github.com/DCCH64/MainStation#readme",
+  "dependencies": {
+    "ws": "^8.4.0"
+  }
+}
