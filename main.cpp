@@ -25,8 +25,8 @@ void runPacket() {
 }
 
 int main(int argc, char * argv[]) {
-
-	cout << "Steve's Dcc Train Commander" << endl;
+  cout << "------------------------------------" << endl;
+	cout << "DCCH64 MainStation Interactive Shell" << endl;
 	cout << "------------------------------------" << endl;
 
 	//setup dcc
