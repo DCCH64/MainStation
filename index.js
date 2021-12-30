@@ -2,23 +2,22 @@ ws = require("ws");
 const wss = new ws.WebSocketServer({ port: 3000 });
 var cp = require('child_process');
 var mainstationCLI = cp.spawn('mainstation-cli');
+var shell = require('shelljs');
 
-mainstationCLI.stdout.on("data", function(data) {
-  console.log('data successfully written!', data); // never outputs anything
-});
-
-
-
+mainstationCLI.stdin.write("0" + "\n");
+mainstationCLI.stdin.write("0" + "\n");
 
 function sendToInteractive(msg, ws){
 
   if(msg == "stop"){
+    mainstationCLI.stdin.write('0' + "\n");
+    mainstationCLI.stdin.write("0" + "\n");
+  }else if(msg == "poweroff"){
     mainstationCLI.stdin.write('100' + "\n");
-    mainstationCLI.stdin.write("100" + "\n");
-    mainstationCLI.stdin.end();
-    ws.send("stopped succesfully");
-    process.exit(0);
-  }else{
+    mainstationCLI.stdin.write('100' + "\n");
+    shell.exec('sudo poweroff')
+  }
+  else{
     const cmd = msg;
   const cmdArray = cmd.toString().split("|");
   console.log("Speed setting: " + cmdArray[0]);
@@ -26,6 +25,7 @@ function sendToInteractive(msg, ws){
   mainstationCLI.stdin.write(cmdArray[0]+ "\n");
   mainstationCLI.stdin.write(cmdArray[1]+ "\n");
   }
+
 };
 
 wss.on('connection', function connection(ws) {
@@ -33,5 +33,9 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', data);
     sendToInteractive(data, ws);
   });
-  ws.send('something');
+  ws.send('server accepted connection');
 });
+wss.on("close", function close(ws){
+  mainstationCLI.stdin.write('100' + "\n");
+  mainstationCLI.stdin.write('100' + "\n");
+})
