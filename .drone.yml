@@ -18,5 +18,5 @@ steps:
   settings:
     api_key: 
       from_secret: api_key
-    base_url: https://erikd256.duckdns.org
+    base_url: https://projects.erikd256.duckdns.org
     files: /drone/src/out/*
