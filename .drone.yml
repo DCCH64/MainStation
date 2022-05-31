@@ -7,11 +7,11 @@ platform:
 
 steps:
 - name: "install dependencies"
-  image: focal
+  image: ubuntu
   commands:
     - git g++ make build-essential
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && sudo ./build
 - name: "build MainStation"
-  image: focal
+  image: ubuntu
   commands:
     - make
