@@ -26,5 +26,3 @@ steps:
     base_url: https://projects.erikd256.duckdns.org
     files: /drone/src/out/*
     draft: true
-  when:
-    event: tag
