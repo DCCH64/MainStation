@@ -1,5 +1,4 @@
-mainstation-web
 mainstation-cli
-mainstation-interactive
 node_modules
 package-lock.json
+.directory

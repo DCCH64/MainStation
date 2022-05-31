@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/DCCH64/MainStation#readme",
   "dependencies": {
+    "nanotimer": "^0.3.15",
+    "onoff": "^6.0.3",
     "shelljs": "^0.8.4",
     "ws": "^8.4.0"
   }
