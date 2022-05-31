@@ -8,7 +8,7 @@ platform:
 steps:
 - name: "Build"
   image: ubuntu:focal
-   environment:
+  environment:
     GITEAUSERNAME:
       from_secret: username
     GITEATOKEN:
