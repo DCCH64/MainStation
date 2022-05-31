@@ -18,14 +18,4 @@ steps:
     - apt-get install -y git g++ make build-essential sudo
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && ./build
     - make -C /drone/src
-    - cd /drone/src
-    - git tag $(git rev-parse HEAD)
-    - git push https://$GITEAUSERNAME:$GITEATOKEN@projects.erikd256.duckdns.org/DCCH64/MainStation.git $(git rev-parse HEAD)
-- name: gitea_release
-  image: plugins/gitea-release
-  settings:
-    api_key: 
-      from_secret: api_key
-    base_url: https://projects.erikd256.duckdns.org
-    files: /drone/src/out/*
-    draft: true
+    - cd /drone/srs
