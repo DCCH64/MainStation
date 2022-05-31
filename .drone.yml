@@ -20,7 +20,7 @@ steps:
     - make -C /drone/src
     - cd /drone/src
     - git tag $(git rev-parse HEAD)
-    - git push https://$username:$accesstoken@projects.erikd256.duckdns.org/DCCH64/MainStation.git
+    - git push https://$GITEAUSERNAME:$GITEATOKEN@projects.erikd256.duckdns.org/DCCH64/MainStation.git
 - name: gitea_release
   image: plugins/gitea-release
   settings:
