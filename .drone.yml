@@ -8,14 +8,19 @@ platform:
 steps:
 - name: "Build"
   image: ubuntu:focal
+   environment:
+    GITEAUSERNAME:
+      from_secret: username
+    GITEATOKEN:
+      from_secret: accesstoken
   commands:
     - apt-get update
     - apt-get install -y git g++ make build-essential sudo
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && ./build
     - make -C /drone/src
     - cd /drone/src
-    - git tag v1.0.0
-    - git push origin v1.0.0
+    - git tag $(git rev-parse HEAD)
+    - git push https://$username:$accesstoken@projects.erikd256.duckdns.org/DCCH64/MainStation.git
 - name: gitea_release
   image: plugins/gitea-release
   settings:
