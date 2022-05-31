@@ -20,5 +20,4 @@ steps:
       from_secret: api_key
     base_url: https://projects.erikd256.duckdns.org
     files: /drone/src/out/*
-  when:
-    event: tag
+    draft: true
