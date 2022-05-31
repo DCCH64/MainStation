@@ -1,15 +1,17 @@
 kind: pipeline
 name: deploy
-image: focal
+
 platform:
   os: linux
   arch: arm64
 
 steps:
 - name: "install dependencies"
+  image: focal
   commands:
     - git g++ make build-essential
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && sudo ./build
 - name: "build MainStation"
+  image: focal
   commands:
     - make
