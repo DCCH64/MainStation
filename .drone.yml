@@ -9,7 +9,7 @@ steps:
 - name: "install dependencies"
   image: ubuntu
   commands:
-    - git g++ make build-essential
+    - sudo apt-get install -y git g++ make build-essential
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && sudo ./build
 - name: "build MainStation"
   image: ubuntu
