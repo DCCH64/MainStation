@@ -1,6 +1,8 @@
 kind: pipeline
 name: deploy
-
+platform:
+  os: linux
+  arch: arm64
 steps:
 - name: "Hello World"
   image: docker
