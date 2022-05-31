@@ -12,4 +12,4 @@ steps:
     - apt-get update
     - apt-get install -y git g++ make build-essential sudo
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && ./build
-    - make
+    - make -C /drone/src
