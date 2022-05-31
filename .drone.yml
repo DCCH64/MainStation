@@ -13,6 +13,11 @@ steps:
     - apt-get install -y git g++ make build-essential sudo
     - git clone https://github.com/WiringPi/WiringPi.git && cd WiringPi && ./build
     - make -C /drone/src
+- name: prepare gitea release
+  image: docker
+  commands:
+    - git tag v1.0.0
+    - git push origin v1.0.0
 - name: gitea_release
   image: plugins/gitea-release
   settings:
@@ -21,3 +26,5 @@ steps:
     base_url: https://projects.erikd256.duckdns.org
     files: /drone/src/out/*
     draft: true
+  when:
+    event: tag
