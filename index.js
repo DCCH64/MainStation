@@ -1,15 +1,11 @@
 /*
-
 ██████╗  ██████╗ ██████╗██╗  ██╗ ██████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██╔════╝██║  ██║██╔════╝ ██║  ██║
 ██║  ██║██║     ██║     ███████║███████╗ ███████║
 ██║  ██║██║     ██║     ██╔══██║██╔═══██╗╚════██║
 ██████╔╝╚██████╗╚██████╗██║  ██║╚██████╔╝     ██║
 ╚═════╝  ╚═════╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝      ╚═╝
-A digital scale railroad controller by erikd256.
-
-
-Licensed under the GNU GPL 3.0 or later
+A digital scale railroad controller by erikd256. - Licensed under the GNU GPL 3.0 or later
 */
 
 //DCC signal required modules
@@ -71,7 +67,7 @@ DCC Packet:
 
 General format:
 
-14 bits as preamble byte + 0 + Address byte + 0 + instruction byte +0 + error detection byte + 1
+14 bits with the value 1 as preamble byte + 0 + Address byte + 0 + instruction byte + 0 + error detection byte + 1
 
 */
 
@@ -80,3 +76,19 @@ var packet = [];
 
 // define speedsteps 
 var speedSteps = [10000,00001,10001,00000,,00010,10010,00011,10011,00100,10100,00101,10101,00110,10110,00111,10111,01000,11000,01001,11001,01010,11010,01011,11011,01100,11100,01101,11101,01110,11110,01111,11111];
+
+// calculate address byte as it consist of an 8-bit binary string.
+function calculateAddressB(addr) {
+  if (n < 0 || n > 255 || n % 1 !== 0) {
+      throw new Error(n + " Err: String too large");
+  }
+  return ("000000000" + n.toString(2)).substr(-8)
+}
+function createPacket(address, speed){
+  var speedStepPosition = speed + 3;
+  console.log(speedSteps[speedStepPosition]);
+}
+
+function calculateInstructionB(){
+  // instruction byte = CCCDDDDD, CCCDDDDD 0 DDDDDDDD, or CCCDDDDD 0 DDDDDDDD 0 DDDDDDDD
+}
