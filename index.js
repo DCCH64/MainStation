@@ -79,16 +79,86 @@ var speedSteps = [10000,00001,10001,00000,,00010,10010,00011,10011,00100,10100,0
 
 // calculate address byte as it consist of an 8-bit binary string.
 function calculateAddressB(addr) {
-  if (n < 0 || n > 255 || n % 1 !== 0) {
+  if (n < 0 || n > 192 || n % 1 !== 0) {
       throw new Error(n + " Err: String too large");
   }
   return ("000000000" + n.toString(2)).substr(-8)
 }
+
+function calculateInstructionB(fxGroup, bit1, bit2, bit3, bit4, bit5){
+  /* 
+  instruction byte = CCCDDDDD 0 DDDDDDDD 0 DDDDDDD 0
+  
+  "1" means fx is on, "0" means fx is off
+
+  Function group one instructions (F0-F4): 100DDDDD
+    - First D-bit 
+  
+  Function group two instructions (F5-F12)
+  */
+  var instructionbit = [1,0,0,D,D,D,D,D];
+  if(fxGroup == 1){
+    instructionbit[2] = 0;
+    if(bit1 == "1"){
+      instructionbit[3] = 1;
+    }else{
+      instructionbit[3] = 0;
+    };
+    if(bit2 == "1"){
+      instructionbit[4] = 1;
+    }else{
+      instructionbit[4] = 0;
+    };
+    if(bit3 == "1"){
+      instructionbit[5] = 1;
+    }else{
+      instructionbit[5] = 0;
+    };
+    if(bit4 == "1"){
+      instructionbit[6] = 1;
+    }else{
+      instructionbit[6] = 0;
+    };
+    if(bit5 == "1"){
+      instructionbit[7] = 1;
+    }else{
+      instructionbit[7] = 0;
+    };
+  };
+  if(fxGroup == 1){
+    instructionbit[2] = 1;
+    if(bit1 == "1"){
+      instructionbit[3] = 1;
+    }else{
+      instructionbit[3] = 0;
+    };
+    if(bit2 == "1"){
+      instructionbit[4] = 1;
+    }else{
+      instructionbit[4] = 0;
+    };
+    if(bit3 == "1"){
+      instructionbit[5] = 1;
+    }else{
+      instructionbit[5] = 0;
+    };
+    if(bit4 == "1"){
+      instructionbit[6] = 1;
+    }else{
+      instructionbit[6] = 0;
+    };
+    if(bit5 == "1"){
+      instructionbit[7] = 1;
+    }else{
+      instructionbit[7] = 0;
+    };
+  }  
+}
+
+
 function createPacket(address, speed){
   var speedStepPosition = speed + 3;
   console.log(speedSteps[speedStepPosition]);
 }
 
-function calculateInstructionB(){
-  // instruction byte = CCCDDDDD, CCCDDDDD 0 DDDDDDDD, or CCCDDDDD 0 DDDDDDDD 0 DDDDDDDD
-}
+
