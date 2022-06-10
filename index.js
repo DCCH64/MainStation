@@ -13,7 +13,7 @@ const NanoTimer = require('nanotimer');
 const Gpio = require('onoff').Gpio;
 const { Server } = require("socket.io");
 const figlet = require("figlet");
-
+const binaryConverter = require("int-to-binary");
 // WebServer and NanoTimer required for package processing
 var timer = new NanoTimer();
 const io = new Server();
@@ -79,10 +79,9 @@ var speedSteps = [10000,00001,10001,00000,,00010,10010,00011,10011,00100,10100,0
 
 // calculate address byte as it consist of an 8-bit binary string.
 function calculateAddressB(addr) {
-  if (n < 0 || n > 192 || n % 1 !== 0) {
-      throw new Error(n + " Err: String too large");
-  }
-  return ("000000000" + n.toString(2)).substr(-8)
+  var address = binaryConverter.unsigned(addr, 8);
+  var addressbit = address.split("");
+  return addressbit;
 }
 
 function calculateInstructionB(fxGroup, bit1, bit2, bit3, bit4, bit5){
@@ -152,13 +151,14 @@ function calculateInstructionB(fxGroup, bit1, bit2, bit3, bit4, bit5){
     }else{
       instructionbit[7] = 0;
     };
-  }  
+  };
+  return instructionbit;  
 }
 
 
 function createPacket(address, speed){
   var speedStepPosition = speed + 3;
-  console.log(speedSteps[speedStepPosition]);
+  console.log(speedSteps[speedStepPosition].split());
 }
 
 

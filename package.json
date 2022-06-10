@@ -24,6 +24,7 @@
   "homepage": "https://github.com/DCCH64/MainStation#readme",
   "dependencies": {
     "figlet": "^1.5.2",
+    "int-to-binary": "^1.0.2",
     "nanotimer": "^0.3.15",
     "onoff": "^6.0.3",
     "shelljs": "^0.8.4",
