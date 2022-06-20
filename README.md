@@ -7,6 +7,3 @@
 [NMRA specification for DCC extended packet format](https://www.nmra.org/sites/default/files/standards/sandrp/pdf/s-9.2.1_dcc_extended_packet_formats.pdf) </br>
 [NMRA standards and RP's](https://www.nmra.org/index-nmra-standards-and-recommended-practices)</br>
 [NMRA DCC standards and RP's](https://www.nmra.org/dcc-rps-standards)</br></br></br>
-[Drone CI Builds](https://drone.erikd256.duckdns.org/DCCH64/MainStation)
-
-[![Build Status](https://drone.erikd256.duckdns.org/api/badges/DCCH64/MainStation/status.svg)](https://drone.erikd256.duckdns.org/DCCH64/MainStation)
