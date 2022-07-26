@@ -1,3 +1,4 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/DCCH64/MainStation/tree/dev.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/DCCH64/MainStation/tree/dev)
 # MainStation
 
 > This is a work in progress! Please don't expect much from it now in this very early state.
