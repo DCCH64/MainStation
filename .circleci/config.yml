@@ -13,7 +13,7 @@ jobs:
          echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password-stdin
 
      # build the application image
-     - run: docker build -t .
+     - run: docker build .
 
      # deploy the image
      - run: docker push erikd256/MainStation:latest
