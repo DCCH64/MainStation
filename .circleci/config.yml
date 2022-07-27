@@ -16,4 +16,4 @@ jobs:
      - run: |
          docker buildx ls
          docker buildx use default
-         docker buildx build --platform linux/arm64 -t erikd256/dcch64-mainstation --push .
+         docker buildx build --platform linux/arm64 -t erikd256/dcch64-mainstation:dev --push .
