@@ -8,11 +8,8 @@ executors:
       IMAGE_NAME: erikd256/MainStation
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
-      - image: docker
-        auth:
-            username: $DOCKERHUB_USERNAME
-            password: $DOCKERHUB_PASSWORD
-
+      - image: docker:17.05.0-ce-git
+      
 jobs:
     publishLatestToHub: 
       executor: docker-publisher
