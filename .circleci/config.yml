@@ -8,7 +8,7 @@ executors:
       IMAGE_NAME: erikd256/MainStation
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
-      - image: circleci/node:latest
+      - image: docker
         auth:
             username: $DOCKERHUB_USERNAME
             password: $DOCKERHUB_PASSWORD
