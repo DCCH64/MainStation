@@ -1,10 +1,11 @@
 version: "2"
 
 services:
-  webclient: "erikd256/dcch64-mainstation-integratedwebclient:latest"
-   ports:
+  webclient: 
+    image: "erikd256/dcch64-mainstation-integratedwebclient:latest"
+    ports:  
       - "80:3000"
   dccgen:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
-     ports: 
+    ports: 
       - "4386:3000"
