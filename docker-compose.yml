@@ -5,10 +5,14 @@ services:
     image: "erikd256/dcch64-mainstation-integratedwebclient:latest"
     ports:  
       - "80:3000"
+    environment: 
+      - WS_PORT=4386
   dccgen:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
     privileged: true
     ports: 
       - "4386:3000"
+    environment:
+      - WS_PORT=3000
     cap_add:
       - SYS_RAWIO
