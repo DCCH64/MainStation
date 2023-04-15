@@ -7,6 +7,7 @@ services:
       - "80:3000"
   dccgen:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
+    privileged: true
     ports: 
       - "4386:3000"
     cap_add:
