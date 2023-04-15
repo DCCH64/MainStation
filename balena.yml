@@ -1,0 +1,25 @@
+name: dcch64-mainstation
+type: sw.application
+joinable: false
+description: >-
+  This is a fully self-built and self-controllable command station for the dcc protocol.
+post-provisioning: >-
+  ## Usage instructions
+  https://dcch64.github.io/docs/intro
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/DCCH64/MainStation/'
+  logo:
+    type: blob.asset
+    data:
+      url: 'https://avatars.githubusercontent.com/u/89342793?s=200&v=4'
+data:
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi4-64
+    - fincm3
+    - intel-nuc
