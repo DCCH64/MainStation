@@ -9,3 +9,5 @@ services:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
     ports: 
       - "4386:3000"
+    cap_add:
+      - SYS_RAWIO
