@@ -6,14 +6,14 @@ services:
     ports:  
       - "80:3000"
     environment: 
-      - WS_PORT=4386
+      - WS_PORT=3001
       - SERVER_PORT=3000
   dccgen:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
     privileged: true
     ports: 
-      - "4386:3000"
+      - "3001:3001"
     environment:
-      - WS_PORT=3000
+      - WS_PORT=3001
     cap_add:
       - SYS_RAWIO
