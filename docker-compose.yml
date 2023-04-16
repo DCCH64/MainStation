@@ -6,7 +6,6 @@ services:
     ports:  
       - "80:3000"
     environment: 
-      - WS_PORT=3001
       - SERVER_PORT=3000
   dccgen:
     image: "erikd256/dcch64-mainstation-dccgen:latest"
